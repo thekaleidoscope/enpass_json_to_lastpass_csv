@@ -7,6 +7,8 @@ from main.base.fields.url_field import URLField
 from main.base.fields.user_name_field import UserNameField
 from test.fixture.base_test_fixture import row_with_all_fields
 
+GROUPING = "grouping"  # enpass export lacks the context of grouping
+
 
 def get_enpass_field_interpreter(enpass_field_data) -> EnpassField:
     for field in EnpassField.subclasses:
@@ -22,6 +24,7 @@ def get_row_initial_data(input_enpass_json_row):
         UserNameField.get_lastpass_field_name(): "",
         PasswordField.get_lastpass_field_name(): "",
         ExtraField.get_lastpass_field_name(): "",
+        GROUPING: "",
     }
     return row_data
 

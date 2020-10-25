@@ -1,0 +1,61 @@
+{
+  "items": [
+    {
+      "favorite": 0,
+      "fields": [
+        {
+          "label": "Website",
+          "order": 4,
+          "sensitive": 0,
+          "type": "url",
+          "uid": 13,
+          "value": "https://identity.linuxfoundation.org/"
+        },
+        {
+          "label": "Username",
+          "order": 1,
+          "sensitive": 0,
+          "type": "username",
+          "uid": 10,
+          "value": "basicName"
+        },
+        {
+          "label": "Password",
+          "order": 3,
+          "sensitive": 1,
+          "type": "password",
+          "uid": 11,
+          "value": "basicPassword"
+        },
+        {
+          "label": "E-mail",
+          "order": 2,
+          "sensitive": 0,
+          "type": "email",
+          "uid": 12,
+          "value": "abc@xyz.com"
+        },
+        {
+          "label": "Phone number",
+          "order": 6,
+          "sensitive": 0,
+          "type": "phone",
+          "uid": 14,
+          "value": "01110011"
+        }
+      ],
+      "icon": {
+        "fav": "identity.linuxfoundation.org",
+        "image": {
+          "file": "misc/login"
+        },
+        "type": 1,
+        "uuid": ""
+      },
+      "note": "",
+      "template_type": "login.default",
+      "title": "Linuxfoundation",
+      "uuid": "d13f6d99-4af4-43ee-bafa-778ac5f93c7f"
+    }
+  ]
+}
