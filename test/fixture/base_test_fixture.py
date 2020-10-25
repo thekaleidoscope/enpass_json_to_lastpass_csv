@@ -17,7 +17,16 @@ url_parsed_field = {
     "value": "https://identity.linuxfoundation.org/user/login",
 }
 
-row_with_url = {
+userName_parsed_field = {
+    "label": "Username",
+    "order": 1,
+    "sensitive": 0,
+    "type": "username",
+    "uid": 10,
+    "value": "basicName",
+}
+
+row_with_all_fields = {
     "favorite": 0,
     "fields": [
         {
@@ -27,7 +36,16 @@ row_with_url = {
             "type": "url",
             "uid": 13,
             "value": "https://identity.linuxfoundation.org/",
+        },
+        {
+            "label": "Username",
+            "order": 1,
+            "sensitive": 0,
+            "type": "username",
+            "uid": 10,
+            "value": "basicName",
         }
+
     ],
     "icon": {
         "fav": "identity.linuxfoundation.org",

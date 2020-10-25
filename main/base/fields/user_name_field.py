@@ -1,9 +1,9 @@
 from main.base.fields.enpass_field import EnpassField
 
 
-class URLField(EnpassField):
-    enpass_field_name = "Website"
-    lastpass_field_name = "url"
+class UserNameField(EnpassField):
+    enpass_field_name = "Username"
+    lastpass_field_name = "username"
 
     def __init__(self, value) -> None:
         self.field_value = value

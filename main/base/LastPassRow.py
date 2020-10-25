@@ -1,6 +1,6 @@
 from main.base.fields.enpass_field import EnpassField
-from test.fixture.base_test_fixture import row_with_url
-from main.base.fields import url_field
+from test.fixture.base_test_fixture import row_with_all_fields
+from main.base.fields import url_field, user_name_field
 
 
 def get_enpass_field_interpreter(enpass_field_data) -> EnpassField:
@@ -20,4 +20,4 @@ def parse(input_enpass_json_row) -> {}:
 
 
 if __name__ == "__main__":
-    print(parse(row_with_url))
+    print(parse(row_with_all_fields))

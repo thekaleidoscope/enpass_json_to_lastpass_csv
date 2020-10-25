@@ -12,6 +12,10 @@ class EnpassField:
         pass
 
     @classmethod
+    def get_enpass_field_name(cls) -> str:
+        pass
+
+    @classmethod
     def get_parsed_value(cls, input_value) -> str:
         pass
 
