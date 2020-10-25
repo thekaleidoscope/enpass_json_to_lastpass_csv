@@ -1,9 +1,9 @@
 from main.base.fields.enpass_field import EnpassField
 
 
-class NameField(EnpassField):
-    enpass_field_name = "title"
-    lastpass_field_name = "name"
+class FavouriteField(EnpassField):
+    enpass_field_name = "favorite"
+    lastpass_field_name = "fav"
 
     def __init__(self, value) -> None:
         self.field_value = value

@@ -1,9 +1,11 @@
 import unittest
 
+from main.base.fields.extra_field import ExtraField
 from main.base.fields.password_field import PasswordField
 from main.base.fields.url_field import URLField
 from main.base.fields.user_name_field import UserNameField
-from test.fixture.base_test_fixture import url_parsed_field, username_parsed_field, password_parsed_field
+from test.fixture.base_test_fixture import url_parsed_field, username_parsed_field, password_parsed_field, \
+    extra_parsed_field
 
 
 class FieldsParsingTest(unittest.TestCase):
@@ -28,6 +30,14 @@ class FieldsParsingTest(unittest.TestCase):
         self.assertTrue(PasswordField.is_applicable(password_parsed_field))
 
         data = PasswordField.get_parsed_value(password_parsed_field)
+        self.assertNotEqual("", data)
+        self.assertEqual(expected_column_data, data)
+
+    def test_parseExtraField(self):
+        expected_column_data = f"{extra_parsed_field['label']} : {extra_parsed_field['value']}\n"
+        self.assertTrue(ExtraField.is_applicable(extra_parsed_field))
+
+        data = ExtraField.get_parsed_value(extra_parsed_field)
         self.assertNotEqual("", data)
         self.assertEqual(expected_column_data, data)
 

@@ -35,6 +35,15 @@ password_parsed_field = {
     "value": "basicPassword",
 }
 
+extra_parsed_field = {
+    "label": "E-mail",
+    "order": 2,
+    "sensitive": 0,
+    "type": "email",
+    "uid": 12,
+    "value": "abc@xyz.com",
+}
+
 row_with_all_fields = {
     "favorite": 0,
     "fields": [
@@ -61,7 +70,23 @@ row_with_all_fields = {
             "type": "password",
             "uid": 11,
             "value": "basicPassword",
-        }
+        },
+        {
+            "label": "E-mail",
+            "order": 2,
+            "sensitive": 0,
+            "type": "email",
+            "uid": 12,
+            "value": "abc@xyz.com",
+        },
+        {
+            "label": "Phone number",
+            "order": 6,
+            "sensitive": 0,
+            "type": "phone",
+            "uid": 14,
+            "value": "01110011",
+        },
 
     ],
     "icon": {
