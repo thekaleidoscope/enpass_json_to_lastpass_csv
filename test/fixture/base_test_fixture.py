@@ -17,13 +17,22 @@ url_parsed_field = {
     "value": "https://identity.linuxfoundation.org/user/login",
 }
 
-userName_parsed_field = {
+username_parsed_field = {
     "label": "Username",
     "order": 1,
     "sensitive": 0,
     "type": "username",
     "uid": 10,
     "value": "basicName",
+}
+
+password_parsed_field = {
+    "label": "Password",
+    "order": 3,
+    "sensitive": 1,
+    "type": "password",
+    "uid": 11,
+    "value": "basicPassword",
 }
 
 row_with_all_fields = {
@@ -44,6 +53,14 @@ row_with_all_fields = {
             "type": "username",
             "uid": 10,
             "value": "basicName",
+        },
+        {
+            "label": "Password",
+            "order": 3,
+            "sensitive": 1,
+            "type": "password",
+            "uid": 11,
+            "value": "basicPassword",
         }
 
     ],
