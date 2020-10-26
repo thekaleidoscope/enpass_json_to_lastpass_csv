@@ -1,3 +1,4 @@
+from main.base.constants.enpass_constants import FIELDS, GROUPING
 from main.base.fields.enpass_field import EnpassField
 from main.base.fields.extra_field import ExtraField
 from main.base.fields.favourite_field import FavouriteField
@@ -6,8 +7,6 @@ from main.base.fields.password_field import PasswordField
 from main.base.fields.url_field import URLField
 from main.base.fields.user_name_field import UserNameField
 from test.fixture.base_test_fixture import row_with_all_fields
-
-GROUPING = "grouping"  # enpass export lacks the context of grouping
 
 
 def get_enpass_field_interpreter(enpass_field_data) -> EnpassField:
@@ -32,7 +31,7 @@ def get_row_initial_data(input_enpass_json_row):
 def parse(input_enpass_json_row) -> {}:
     row_data = get_row_initial_data(input_enpass_json_row)
 
-    enpass_fields_data = input_enpass_json_row["fields"]
+    enpass_fields_data = input_enpass_json_row[FIELDS]
     for enpass_field_data in enpass_fields_data:
         enpass_field = get_enpass_field_interpreter(enpass_field_data)
         if enpass_field:
