@@ -1,3 +1,4 @@
+from main.base.constants.enpass_constants import VALUE, LABEL
 from main.base.fields.enpass_field import EnpassField
 from main.base.fields.password_field import PasswordField
 from main.base.fields.url_field import URLField
@@ -24,10 +25,10 @@ class ExtraField(EnpassField):
 
     @classmethod
     def get_parsed_value(cls, input_value) -> str:
-        return f"{input_value['label']} : {input_value['value']}\n"
+        return f"{input_value[LABEL]} : {input_value[VALUE]}\n"
 
     @classmethod
     def is_applicable(cls, input_value) -> bool:
-        return input_value["value"] != "" and input_value["label"] not in [URLField.enpass_field_name,
-                                                                           UserNameField.enpass_field_name,
-                                                                           PasswordField.enpass_field_name]
+        return input_value[VALUE] != "" and input_value[LABEL] not in [URLField.enpass_field_name,
+                                                                       UserNameField.enpass_field_name,
+                                                                       PasswordField.enpass_field_name]

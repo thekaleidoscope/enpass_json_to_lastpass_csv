@@ -1,3 +1,4 @@
+from main.base.constants.enpass_constants import VALUE, LABEL
 from main.base.fields.enpass_field import EnpassField
 
 
@@ -22,8 +23,8 @@ class URLField(EnpassField):
     @classmethod
     def get_parsed_value(cls, input_value) -> str:
 
-        return input_value["value"]
+        return input_value[VALUE]
 
     @classmethod
     def is_applicable(cls, input_value) -> bool:
-        return input_value["label"] == cls.enpass_field_name
+        return input_value[LABEL] == cls.enpass_field_name
