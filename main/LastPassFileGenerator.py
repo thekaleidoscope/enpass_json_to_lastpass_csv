@@ -1,9 +1,11 @@
+import argparse
 import csv
 import glob
 import json
+from io import TextIOWrapper
 from pathlib import Path
 
-from main.base import LastPassRow
+from main.base import lastpass_row
 
 
 def getLastPassHeaders(lastpass_json_rows: []) -> []:
@@ -13,7 +15,7 @@ def getLastPassHeaders(lastpass_json_rows: []) -> []:
 def getLastPassRows(enpass_rows_json_array) -> []:
     lastpass_rows = []
     for enpass_row_json in enpass_rows_json_array:
-        lastpass_rows.append(LastPassRow.parse(enpass_row_json))
+        lastpass_rows.append(lastpass_row.parse(enpass_row_json))
 
     return lastpass_rows
 
@@ -30,7 +32,6 @@ def getLastPassCSVRows(lastpass_json_rows) -> []:
 
 def generateCSV(lastpass_csv_rows):
     script_location = Path(__file__).absolute().parent
-    print(script_location)
     existing_export_files_len = len(glob.glob1(f"{script_location}/output", f"lastpass-*.csv"))
     with open(f'{script_location}/output/lastpass-{existing_export_files_len}.csv', 'w', newline='') as export_file:
         writer = csv.writer(export_file)
@@ -38,8 +39,8 @@ def generateCSV(lastpass_csv_rows):
     print(f"find lastpass-{existing_export_files_len}.csv in output directory")
 
 
-def generateLastPassCSV(file_path: str):
-    enpass_json = json.load(open(file_path, 'r'))
+def generateLastPassCSV(enpass_file: TextIOWrapper):
+    enpass_json = json.load(enpass_file)
     print(f"enpass json has {len(enpass_json['items'])} entries")
 
     enpass_rows_json_array = enpass_json['items']
@@ -51,4 +52,10 @@ def generateLastPassCSV(file_path: str):
 
 
 if __name__ == '__main__':
-    generateLastPassCSV("")
+    parser = argparse.ArgumentParser(description='Process input enpass file')
+    parser.add_argument('-i', '--input', required=True, dest='filename', type=argparse.FileType('r'),
+                        help='absolute path to enpass exported json file')
+
+    args = parser.parse_args()
+    generateLastPassCSV(args.filename)
+

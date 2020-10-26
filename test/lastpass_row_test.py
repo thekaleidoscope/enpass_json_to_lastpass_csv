@@ -1,6 +1,6 @@
 import unittest
 
-from main.base import LastPassRow
+from main.base import lastpass_row
 from main.base.fields.extra_field import ExtraField
 from main.base.fields.favourite_field import FavouriteField
 from main.base.fields.name_field import NameField
@@ -12,7 +12,7 @@ from test.fixture.base_test_fixture import row_with_all_fields
 
 class BaseTest(unittest.TestCase):
     def setUp(self):
-        self.row_parse = LastPassRow.parse(row_with_all_fields)
+        self.row_parse = lastpass_row.parse(row_with_all_fields)
 
     def test_shouldParseEnpassJSON(self):
         self.assertTrue(len(self.row_parse) > 0)
