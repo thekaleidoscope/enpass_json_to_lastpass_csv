@@ -2,6 +2,7 @@ import argparse
 import csv
 import glob
 import json
+import logging
 from io import TextIOWrapper
 from pathlib import Path
 
@@ -36,12 +37,12 @@ def generateCSV(lastpass_csv_rows):
     with open(f'{script_location}/output/lastpass-{existing_export_files_len}.csv', 'w', newline='') as export_file:
         writer = csv.writer(export_file)
         writer.writerows(lastpass_csv_rows)
-    print(f"find lastpass-{existing_export_files_len}.csv in output directory")
+    logging.info(f"find lastpass-{existing_export_files_len}.csv in output directory")
 
 
 def generateLastPassCSV(enpass_file: TextIOWrapper):
     enpass_json = json.load(enpass_file)
-    print(f"enpass json has {len(enpass_json['items'])} entries")
+    logging.info(f"enpass json has {len(enpass_json['items'])} entries")
 
     enpass_rows_json_array = enpass_json['items']
     lastpass_json_rows = getLastPassRows(enpass_rows_json_array)
@@ -52,10 +53,12 @@ def generateLastPassCSV(enpass_file: TextIOWrapper):
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
     parser = argparse.ArgumentParser(description='Process input enpass file')
     parser.add_argument('-i', '--input', required=True, dest='filename', type=argparse.FileType('r'),
                         help='absolute path to enpass exported json file')
 
-    args = parser.parse_args()
+    args = parser.parse_args(" -i /Users/yadhukrishnap/Test/enpass_json_to_lastpass_csv/test/fixture/sample.json".split())
+    logging.info(f"input file of {args.filename.name} entered as enpass exported json")
     generateLastPassCSV(args.filename)
 
