@@ -3,7 +3,7 @@ from main.base.fields.enpass_field import EnpassField
 
 
 class URLField(EnpassField):
-    enpass_field_name = "Website"
+    enpass_field_name = "Url"
     lastpass_field_name = "url"
 
     def __init__(self, value) -> None:
